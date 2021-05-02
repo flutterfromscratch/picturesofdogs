@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picturesofdogs/pages/dogsbrowser/browser/bloc/dog_browser_bloc.dart';
+import 'package:picturesofdogs/pages/dogsbrowser/viewer/dogviewer.dart';
 import 'package:picturesofdogs/services/dogloaderservice.dart';
 
 class DogBrowserWidget extends StatefulWidget {
@@ -26,11 +27,21 @@ class _DogBrowserWidgetState extends State<DogBrowserWidget> {
               children: state.dogs
                   .map(
                     (e) => InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => DogViewerPage(name: e.name, imageBytes: e.dogBytes),
+                          ),
+                        );
+                      },
                       child: Card(
-                        child: Image.memory(
-                          e.dogBytes,
-                          fit: BoxFit.cover,
+                        child: Hero(
+                          tag: e.name,
+                          child: Image.memory(
+                            e.dogBytes,
+                            // color: Colors.black,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
