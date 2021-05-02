@@ -2,9 +2,11 @@
 
 // import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
+import 'package:picturesofdogs/pages/dogsbrowser/dogs.dart';
 
 class LoadingPage extends StatefulWidget {
   @override
@@ -21,6 +23,14 @@ class _LoadingPageState extends State<LoadingPage> {
     Future.delayed(Duration(seconds: 1)).then((value) {
       setState(() {
         expanded = true;
+      });
+    }).then((value) {
+      Future.delayed(Duration(seconds: 3)).then((value) {
+        Navigator.of(context).pushAndRemoveUntil(
+            CupertinoPageRoute(
+              builder: (context) => DogsHome(),
+            ),
+            (route) => false);
       });
     });
   }

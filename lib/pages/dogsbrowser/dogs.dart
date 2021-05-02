@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:picturesofdogs/pages/dogsbrowser/browser/dogbrowser.dart';
+// import 'package:picturesofdogs/pages/dogsbrowser/browser/dogbrowser.dart';
+import 'package:picturesofdogs/pages/dogsbrowser/profile/profile.dart';
 
 class DogsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      child: Row(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('okay'),
+      ),
+      body: Column(
         children: [
-          CircleAvatar(
-            child: Text("FFS"),
-          )
+          ProfileWidget(),
+          Expanded(child: DogBrowserWidget()),
         ],
       ),
-      // width: double.infinity,
     );
+    // return ScrollView(
+    //     headerSliverBuilder: (context, innerBoxScrolled) => [ProfileWidget()],
+    //     body: Column(
+    //       children: [DogBrowserWidget()],
+    //     ));
   }
 }

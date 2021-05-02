@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pexels_null_safety/pexels_null_safety.dart';
 // import 'package:pexels/pexels.dart';
 import 'package:picturesofdogs/pages/loading.dart';
+import 'package:picturesofdogs/services/dogloaderservice.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => PexelsClient('apiclientkey'), // todo make this a command line thing
         ),
+        RepositoryProvider(create: (context) => AssetsDogLoader())
       ],
     );
   }
