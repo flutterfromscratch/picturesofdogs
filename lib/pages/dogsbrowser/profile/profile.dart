@@ -21,7 +21,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             CircleAvatar(
               child: Text("FFS"),
             ),
-            Text("Flutter From Scratch")
+            Text(
+              "Flutter From Scratch",
+              style: Theme.of(context).textTheme.headline5,
+            )
           ],
         ),
       ),
