@@ -30,18 +30,15 @@ class _DogBrowserWidgetState extends State<DogBrowserWidget> {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => DogViewerPage(name: e.name, imageBytes: e.dogBytes),
+                            builder: (context) => DogViewerPage(name: e.name),
                           ),
                         );
                       },
                       child: Card(
-                        child: Hero(
-                          tag: e.name,
-                          child: Image.memory(
-                            e.dogBytes,
-                            // color: Colors.black,
-                            fit: BoxFit.cover,
-                          ),
+                        child: Image.memory(
+                          e.dogBytes,
+                          // color: Colors.black,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
