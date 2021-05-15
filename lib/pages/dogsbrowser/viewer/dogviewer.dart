@@ -73,8 +73,9 @@ class _DogViewerPageState extends State<DogViewerPage> {
                   ),
                   AnimatedPadding(
                     curve: Curves.easeInOutCirc,
-                    duration: Duration(milliseconds: 500),
-                    padding: imageScrollBreakpoint ? EdgeInsets.all(10) : EdgeInsets.fromLTRB(10, 10, 10, MediaQuery.of(context).size.height * 0.6),
+                    duration: Duration(milliseconds: 1),
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, _controller.hasClients ? _controller.offset : 0),
+                    // padding: imageScrollBreakpoint ? EdgeInsets.all(10) : EdgeInsets.fromLTRB(10, 10, 10, MediaQuery.of(context).size.height * 0.6),
                     child: Card(
                       elevation: 10,
                       clipBehavior: Clip.antiAlias,
