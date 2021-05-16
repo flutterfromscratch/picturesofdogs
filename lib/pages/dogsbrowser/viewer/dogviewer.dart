@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:picturesofdogs/pages/dogsbrowser/viewer/bloc/dog_viewer_bloc.dart';
 import 'package:picturesofdogs/services/dogloaderservice.dart';
 
-class DogViewerPage extends StatefulWidget {
+class DogViewerPage extends StatelessWidget {
   final String name;
   final String assetPath;
 
@@ -17,11 +17,6 @@ class DogViewerPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _DogViewerPageState createState() => _DogViewerPageState();
-}
-
-class _DogViewerPageState extends State<DogViewerPage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -31,8 +26,8 @@ class _DogViewerPageState extends State<DogViewerPage> {
         child: BlocProvider<DogViewerBloc>(
           create: (context) => DogViewerBloc(RepositoryProvider.of<AssetsDogLoader>(context))
             ..add(LoadDogEvent(
-              widget.name,
-              widget.assetPath,
+              name,
+              assetPath,
             )),
           child: BlocBuilder<DogViewerBloc, DogViewerState>(
             builder: (context, state) {
@@ -41,9 +36,9 @@ class _DogViewerPageState extends State<DogViewerPage> {
                   children: [
                     Container(
                       constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
-                      child: Image.asset(widget.assetPath),
+                      child: Image.asset(assetPath),
                     ),
-                    Text(widget.name)
+                    Text(name)
                   ],
                 );
               }
