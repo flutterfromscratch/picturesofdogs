@@ -49,8 +49,8 @@ class _LoadingPageState extends State<LoadingPage> {
             AnimatedContainer(
               curve: Curves.fastOutSlowIn,
               duration: Duration(seconds: 1),
-              height: expanded ? 400 : 100,
-              width: expanded ? 400 : 100,
+              height: expanded ? 432 : 115,
+              width: expanded ? 432 : 115,
               decoration: expanded ? dogBoxDecoration('assets/dog1.jpg') : dogBoxDecoration('assets/smalldog.jpg'),
             ),
           ],

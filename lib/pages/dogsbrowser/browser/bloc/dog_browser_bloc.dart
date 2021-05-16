@@ -17,7 +17,7 @@ class DogBrowserBloc extends Bloc<DogBrowserEvent, DogBrowserState> {
     DogBrowserEvent event,
   ) async* {
     if (event is LoadDogsEvent) {
-      final dogs = await _dogLoader.getDogs();
+      final dogs = await _dogLoader.getDogAssets();
       yield DogsLoadedState(dogs);
     }
     // TODO: implement mapEventToState

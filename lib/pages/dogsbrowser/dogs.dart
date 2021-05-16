@@ -9,7 +9,7 @@ class DogsHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('okay'),
+        title: Text('Dog Browser'),
       ),
       body: Column(
         children: [

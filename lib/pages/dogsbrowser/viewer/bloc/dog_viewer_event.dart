@@ -6,10 +6,11 @@ abstract class DogViewerEvent extends Equatable {
 
 class LoadDogEvent extends DogViewerEvent {
   final String dogName;
+  final String dogAssetPath;
 
-  LoadDogEvent(this.dogName);
+  LoadDogEvent(this.dogName, this.dogAssetPath);
 
   @override
   // TODO: implement props
-  List<Object?> get props => [dogName];
+  List<Object?> get props => [dogName, dogAssetPath];
 }

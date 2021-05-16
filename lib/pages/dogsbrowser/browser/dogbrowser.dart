@@ -26,19 +26,24 @@ class _DogBrowserWidgetState extends State<DogBrowserWidget> {
               crossAxisCount: (MediaQuery.of(context).size.width / 180).round().clamp(1, 5),
               children: state.dogs
                   .map(
-                    (e) => InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => DogViewerPage(name: e.name),
-                          ),
-                        );
-                      },
-                      child: Card(
-                        child: Image.memory(
-                          e.dogBytes,
-                          // color: Colors.black,
-                          fit: BoxFit.cover,
+                    (e) => Card(
+                      color: Colors.transparent,
+                      child: Ink.image(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                          e.assetPath,
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => DogViewerPage(
+                                  name: e.name,
+                                  assetPath: e.assetPath,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),

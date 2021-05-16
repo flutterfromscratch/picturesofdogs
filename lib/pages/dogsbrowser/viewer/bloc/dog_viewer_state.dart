@@ -11,10 +11,21 @@ class DogViewerInitial extends DogViewerState {
 
 class DogLoadedState extends DogViewerState {
   final String dogName;
+  final String assetPath;
 
-  DogLoadedState(this.dogName);
+  DogLoadedState(this.dogName, this.assetPath);
 
   @override
   // TODO: implement props
-  List<Object?> get props => [this.dogName];
+  List<Object?> get props => [this.dogName, this.assetPath];
+}
+
+class DogErrorState extends DogViewerState {
+  final String dogName;
+
+  DogErrorState(this.dogName);
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [dogName];
 }

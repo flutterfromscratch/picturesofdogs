@@ -26,10 +26,16 @@ class AssetsDogLoader {
   // }
 
   Future<List<Dog>> getDogAssets() async {
-    
+    await Future.delayed(Duration(seconds: 2));
+    return List.generate(12, (index) => Dog('assets/offlinedogs/dog${index + 1}.jpg', 'Dog ${index + 1}'));
   }
 
-
+  Future<Dog> getDog(final String name) async {
+    await Future.delayed(Duration(seconds: 2));
+    final dogs = await getDogAssets();
+    return dogs.firstWhere((element) => element.name == name, orElse: null);
+  }
+  // Dog getDog() =>
 
   // Future<List<String>> getDogAssets() async {
   //   final dogs
